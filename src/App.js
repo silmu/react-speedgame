@@ -23,7 +23,8 @@ class App extends Component {
   startGame = () => {
     console.log('Game started');
     //Make all circles clickable
-    this.setState({ btnStart: false, btnStop: true });
+    this.setState((prevState) => ({ btnStart: !prevState.btnStart }));
+    console.log(this.state.btnStart);
   };
 
   render() {
@@ -31,8 +32,10 @@ class App extends Component {
       <div className={classes.mainContainer}>
         <Header />
         <Modal />
+        <h1>Hello {this.state.btnStart}</h1>
         <Main />
-        <Footer start={this.startHandler} data={this.state} />
+
+        <Footer start={this.startGame} data={this.state} />
       </div>
     );
   }
