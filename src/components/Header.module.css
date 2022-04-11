@@ -1,0 +1,38 @@
+h1 {
+  font-size: 2.5rem;
+  background: -webkit-linear-gradient(rgb(207, 107, 207), violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(189, 90, 189);
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: lighter;
+  padding: 1rem;
+  color: maroon;
+  text-shadow: 0 0 8px white;
+  font-weight: bold;
+}
+
+/* Volume button */
+.btnAudio {
+  background-color: transparent;
+  border: none;
+  /* color: violet; */
+  font-size: 2rem;
+  background: -webkit-linear-gradient(rgb(207, 107, 207), violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(189, 90, 189);
+}
+
+.btnAudio .fa-volume-xmark {
+  display: none;
+}
+
+.btnAudio .fa-volume-high {
+  display: block;
+}

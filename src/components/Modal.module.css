@@ -1,0 +1,41 @@
+.containerGameover {
+  height: 104%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  visibility: hidden;
+}
+
+.containerGameoverModal {
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  margin: 15% auto;
+  border-radius: 10px;
+}
+
+.contentGameover {
+  display: inline-block;
+  line-height: 59px;
+}
+
+.btns {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(189, 90, 189);
+  border-radius: 10px;
+  background: linear-gradient(to bottom, rgb(207, 107, 207), violet);
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+  box-shadow: 0 0 3px white;
+}
+
+.btns:hover {
+  filter: hue-rotate(250deg);
+}

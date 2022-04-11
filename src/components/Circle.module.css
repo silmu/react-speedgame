@@ -1,0 +1,26 @@
+.circles {
+  background-image: url('./../designs/lilypad.svg');
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 1rem;
+  width: 118px;
+  height: 110px;
+  color: transparent;
+  background-color: lightblue;
+  /* border: 1px solid lightblue; */
+  border-radius: 50%;
+  /* padding: 2.5rem; */
+  pointer-events: none; /* prevent clicking circles */
+  filter: saturate(150%) brightness(105%);
+}
+
+.circles:hover {
+  transform: scale(1.2);
+}
+
+.circles.active {
+  /* background-color: violet; */
+  background-image: url('./../designs/frog.svg');
+  filter: saturate(150%) brightness(105%);
+}

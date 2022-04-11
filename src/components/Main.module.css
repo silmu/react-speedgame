@@ -1,0 +1,9 @@
+.containerCircles {
+  padding: 0.5rem;
+  min-width: 132px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: lightblue;
+  margin: 1rem 0;
+}
