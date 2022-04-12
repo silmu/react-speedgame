@@ -1,5 +1,6 @@
 import classes from './Circle.module.css';
 const Circle = (props) => {
+  //Refactor
   if (props.active) {
     return (
       <div
