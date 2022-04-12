@@ -1,5 +1,6 @@
 import classes from './index.css';
 import React, { Component } from 'react';
+
 import Header from './components/Header';
 import Modal from './components/Modal';
 import Main from './components/Main';
@@ -8,7 +9,7 @@ let timer;
 
 class App extends Component {
   state = {
-    numberOfCircles: 4,
+    numberOfCircles: 8,
     score: 0,
     pace: 1000,
     rounds: 0,
@@ -20,6 +21,7 @@ class App extends Component {
     modal: false,
   };
 
+  //Set timer that starts the game and gives 1000 msec to click on a circle
   setTimer = () => {
     timer = setTimeout(() => this.startGame(), this.state.pace);
     return timer;
@@ -43,8 +45,8 @@ class App extends Component {
     console.log('Start clicked');
 
     this.setState({
-      btnStart: !this.state.btnStart,
-      btnStop: !this.state.btnStop,
+      btnStart: false,
+      btnStop: true,
     });
 
     this.startGame();
@@ -76,10 +78,12 @@ class App extends Component {
   circleClickHandler = (e) => {
     //Save the number of selected circle
     let selected = e.target.innerHTML;
+    console.log(selected);
     this.setState({ userSelection: selected });
     console.log(this.state.userSelection);
 
     //If selected circle is not the same as current random end game
+    // eslint-disable-next-line
     if (selected != this.state.random) this.endGameHandler();
     else {
       this.setState({
