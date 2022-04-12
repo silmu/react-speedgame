@@ -1,11 +1,11 @@
 import classes from './Header.module.css';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <h1>Catch the frog</h1>
       <h2>
-        Your score: <span className="scoreText">0</span>
+        Your score: <span className={classes.scoreText}>{props.score}</span>
       </h2>
 
       <button className={classes.btnAudio}>

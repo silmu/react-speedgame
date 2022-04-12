@@ -11,16 +11,19 @@
   /* border: 1px solid lightblue; */
   border-radius: 50%;
   /* padding: 2.5rem; */
-  pointer-events: none; /* prevent clicking circles */
+  /* pointer-events: none; prevent clicking circles */
   filter: saturate(150%) brightness(105%);
 }
 
 .circles:hover {
-  transform: scale(1.2);
 }
 
-.circles.active {
+.active {
   /* background-color: violet; */
   background-image: url('./../designs/frog.svg');
   filter: saturate(150%) brightness(105%);
+}
+
+.circles:active {
+  transform: scale(1.2);
 }

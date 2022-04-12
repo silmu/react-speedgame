@@ -13,9 +13,14 @@ const Footer = (props) => {
         Start game
       </button>
     );
-  } else if (props.data.btnStop === true) {
+  } else {
     button = (
-      <button type="button" className={classes.btns} id={classes.btnStop}>
+      <button
+        type="button"
+        className={classes.btns}
+        id={classes.btnStop}
+        onClick={props.stop}
+      >
         Stop game
       </button>
     );
