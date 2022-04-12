@@ -7,7 +7,8 @@ const Modal = (props) => {
       <div className={classes.containerGameoverModal}>
         <div className={classes.contentGameover}>
           <h2>
-            Your final score: <span className={classes.scoreText}>0</span>
+            Your final score:
+            <span className={classes.scoreText}>{props.score}</span>
           </h2>
           <button type="button" className={classes.btns} onClick={props.close}>
             Close

@@ -5,9 +5,13 @@ const Main = (props) => {
   let checkActive = (num) => {
     return props.active === num;
   };
+  //Check if game is on, make circles clickable
+  const isGameOn = () => {
+    return props.gameOn ? '' : classes.notClickable;
+  };
   return (
     <main>
-      <div className={classes.containerCircles}>
+      <div className={` ${classes.containerCircles} ${isGameOn()}`}>
         <Circle
           click={props.click}
           active={checkActive(0)}

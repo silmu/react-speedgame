@@ -13,6 +13,7 @@ class App extends Component {
     rounds: 0,
     random: '',
     userSelection: 0,
+    gameOn: false,
     btnStart: true,
     btnStop: false,
     modal: false,
@@ -50,7 +51,12 @@ class App extends Component {
     console.log('Game started');
     this.setTimer();
     this.selectRandom();
-    this.setState({ rounds: this.state.rounds + 1 });
+    this.setState({
+      gameOn: true,
+      rounds: this.state.rounds + 1,
+      pace: this.state.pace - 10,
+    });
+    console.log(this.state.pace);
     if (this.state.rounds >= 5) {
       this.endGameHandler();
     }
@@ -60,10 +66,6 @@ class App extends Component {
     console.log('Game ended');
     clearTimeout(timer);
     this.setState({
-      btnStart: !this.state.btnStart,
-      btnStop: !this.state.btnStop,
-      random: '',
-      score: 0,
       modal: true,
     });
   };
@@ -79,7 +81,7 @@ class App extends Component {
     else {
       this.setState({
         score: this.state.score + 1,
-        rounds: this.state.rounds + 1,
+        rounds: this.state.rounds - 1,
       });
     }
   };
@@ -87,17 +89,22 @@ class App extends Component {
   closeHandler = () => {
     this.setState({ modal: false });
     console.log('Close is clicked');
+    window.location.reload();
   };
 
   render() {
     return (
       <div className={classes.mainContainer}>
         <Header score={this.state.score} />
-        <Modal modal={this.state.modal} close={this.closeHandler} />
+        <Modal
+          modal={this.state.modal}
+          close={this.closeHandler}
+          score={this.state.score}
+        />
         <Main
           click={this.circleClickHandler}
           active={this.state.random}
-          gameOn={this.state.btnStop}
+          gameOn={this.state.gameOn}
         />
         <Footer
           start={this.startHandler}

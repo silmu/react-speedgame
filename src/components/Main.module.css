@@ -7,3 +7,7 @@
   background-color: lightblue;
   margin: 1rem 0;
 }
+
+.notClickable {
+  pointer-events: none;
+}
