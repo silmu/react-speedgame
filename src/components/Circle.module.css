@@ -15,9 +15,6 @@
   filter: saturate(150%) brightness(105%);
 }
 
-.circles:hover {
-}
-
 .active {
   /* background-color: violet; */
   background-image: url('./../designs/frog.svg');

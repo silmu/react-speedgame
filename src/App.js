@@ -8,6 +8,7 @@ let timer;
 
 class App extends Component {
   state = {
+    numberOfCircles: 4,
     score: 0,
     pace: 1000,
     rounds: 0,
@@ -27,10 +28,12 @@ class App extends Component {
   selectRandom = () => {
     //Generate a random number
     let prevRandom = this.state.random;
-    let newRandom = Math.floor(Math.random() * 3);
+    let newRandom = Math.floor(
+      Math.random() * (this.state.numberOfCircles - 1)
+    );
     //If number mathes to the lat number reselect
     while (prevRandom === newRandom) {
-      newRandom = Math.floor(Math.random() * 3);
+      newRandom = Math.floor(Math.random() * (this.state.numberOfCircles - 1));
     }
     this.setState({ random: newRandom });
     console.log('Current circle selected: ' + this.state.random);
@@ -105,6 +108,7 @@ class App extends Component {
           click={this.circleClickHandler}
           active={this.state.random}
           gameOn={this.state.gameOn}
+          numberOfCircles={this.state.numberOfCircles}
         />
         <Footer
           start={this.startHandler}

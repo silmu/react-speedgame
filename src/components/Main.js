@@ -9,14 +9,21 @@ const Main = (props) => {
   const isGameOn = () => {
     return props.gameOn ? '' : classes.notClickable;
   };
+
+  //Creating array of circles
+  const circlesArr = [];
+  for (let i = 0; i < props.numberOfCircles; i++) {
+    circlesArr.push(
+      <Circle click={props.click} active={checkActive(i)} key={i}>
+        {i}
+      </Circle>
+    );
+  }
+
   return (
     <main>
       <div className={` ${classes.containerCircles} ${isGameOn()}`}>
-        <Circle
-          click={props.click}
-          active={checkActive(0)}
-          gameOn={props.gameOn}
-        >
+        {/* <Circle click={props.click} active={checkActive(0)}>
           0
         </Circle>
         <Circle click={props.click} active={checkActive(1)}>
@@ -27,7 +34,8 @@ const Main = (props) => {
         </Circle>
         <Circle click={props.click} active={checkActive(3)}>
           3
-        </Circle>
+        </Circle> */}
+        {circlesArr}
       </div>
     </main>
   );

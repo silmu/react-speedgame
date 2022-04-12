@@ -29,7 +29,11 @@ const Footer = (props) => {
     <footer>
       {button}
       <div className={classes.credits}>
-        <a href="https://www.freepik.com/vectors/water">
+        <a
+          href="https://www.freepik.com/vectors/water"
+          target="_blank"
+          rel="noreferrer"
+        >
           Water vector created by pikisuperstar - www.freepik.com
         </a>
       </div>

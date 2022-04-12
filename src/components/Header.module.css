@@ -1,6 +1,7 @@
 h1 {
   font-size: 2.5rem;
   background: -webkit-linear-gradient(rgb(207, 107, 207), violet);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
@@ -23,6 +24,7 @@ h2 {
   /* color: violet; */
   font-size: 2rem;
   background: -webkit-linear-gradient(rgb(207, 107, 207), violet);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
@@ -35,7 +37,4 @@ h2 {
 
 .btnAudio .fa-volume-high {
   display: block;
-}
-
-.scoreText {
 }

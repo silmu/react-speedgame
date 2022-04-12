@@ -15,7 +15,7 @@
 
 .containerGameoverModal {
   background-color: white;
-  height: 200px;
+  height: fit-content;
   width: 300px;
   margin: 15% auto;
   border-radius: 10px;
@@ -41,4 +41,9 @@
 
 .btns:hover {
   filter: hue-rotate(250deg);
+}
+
+h2 {
+  padding-bottom: 0;
+  margin: 0;
 }
