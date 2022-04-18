@@ -99,7 +99,11 @@ class App extends Component {
 
     //If selected circle is not the same as current random end game
     // eslint-disable-next-line
-    if (selected != this.state.random) this.endGameHandler();
+    if (selected != this.state.random) {
+      //Give user 3 attempts to misclick
+      this.setState({ rounds: this.state.rounds + 1 });
+    }
+    // this.endGameHandler();
     else {
       this.setState({
         score: this.state.score + 1,
