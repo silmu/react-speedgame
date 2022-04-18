@@ -1,6 +1,9 @@
 import classes from './Header.module.css';
+import Button from './UI components/Button';
 
 const Header = (props) => {
+  //Change audio icon if audio is on
+  let classSound = props.audio === true ? classes.soundOn : classes.soundOff;
   return (
     <header>
       <h1>Catch the frog</h1>
@@ -8,10 +11,9 @@ const Header = (props) => {
         Your score: <span className={classes.scoreText}>{props.score}</span>
       </h2>
 
-      <button className={classes.btnAudio}>
-        <i className="fa-solid fa-volume-high"></i>
-        <i className="fa-solid fa-volume-xmark"></i>
-      </button>
+      <Button click={props.toggleSound}>
+        <div className={classSound} alt="Audio off" />
+      </Button>
     </header>
   );
 };

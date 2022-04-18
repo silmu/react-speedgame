@@ -18,23 +18,22 @@ h2 {
 }
 
 /* Volume button */
-.btnAudio {
+.soundOff {
+  background-image: url('../designs/volume-xmark-solid.svg');
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 18px;
+  filter: invert(100%);
   background-color: transparent;
   border: none;
-  /* color: violet; */
-  font-size: 2rem;
-  background: -webkit-linear-gradient(rgb(207, 107, 207), violet);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(189, 90, 189);
 }
 
-.btnAudio .fa-volume-xmark {
-  display: none;
-}
-
-.btnAudio .fa-volume-high {
-  display: block;
+.soundOn {
+  background-image: url('../designs/volume-high-solid.svg');
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 18px;
+  filter: invert(100%);
+  background-color: transparent;
+  border: none;
 }

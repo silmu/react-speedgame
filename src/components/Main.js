@@ -23,18 +23,6 @@ const Main = (props) => {
   return (
     <main>
       <div className={` ${classes.containerCircles} ${isGameOn()}`}>
-        {/* <Circle click={props.click} active={checkActive(0)}>
-          0
-        </Circle>
-        <Circle click={props.click} active={checkActive(1)}>
-          1
-        </Circle>
-        <Circle click={props.click} active={checkActive(2)}>
-          2
-        </Circle>
-        <Circle click={props.click} active={checkActive(3)}>
-          3
-        </Circle> */}
         {circlesArr}
       </div>
     </main>

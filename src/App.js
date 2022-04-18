@@ -5,7 +5,9 @@ import Header from './components/Header';
 import Modal from './components/Modal';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import sound from './audio/frog.ogg';
 let timer;
+let audio = new Audio(sound);
 
 class App extends Component {
   state = {
@@ -19,6 +21,15 @@ class App extends Component {
     btnStart: true,
     btnStop: false,
     modal: false,
+    audio: false,
+  };
+
+  playSound = () => {
+    audio.play();
+  };
+
+  toggleSound = () => {
+    this.setState({ audio: !this.state.audio });
   };
 
   //Set timer that starts the game and gives 1000 msec to click on a circle
@@ -33,7 +44,7 @@ class App extends Component {
     let newRandom = Math.floor(
       Math.random() * (this.state.numberOfCircles - 1)
     );
-    //If number mathes to the lat number reselect
+    //If number mathes to the last number reselect
     while (prevRandom === newRandom) {
       newRandom = Math.floor(Math.random() * (this.state.numberOfCircles - 1));
     }
@@ -54,6 +65,10 @@ class App extends Component {
 
   startGame = () => {
     console.log('Game started');
+    //Play audio if not muted
+    if (this.state.audio === true) {
+      this.playSound();
+    }
     this.setTimer();
     this.selectRandom();
     this.setState({
@@ -102,7 +117,11 @@ class App extends Component {
   render() {
     return (
       <div className={classes.mainContainer}>
-        <Header score={this.state.score} />
+        <Header
+          score={this.state.score}
+          toggleSound={this.toggleSound}
+          audio={this.state.audio}
+        />
         <Modal
           modal={this.state.modal}
           close={this.closeHandler}
