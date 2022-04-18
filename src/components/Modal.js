@@ -1,13 +1,15 @@
 import classes from './Modal.module.css';
+import Button from './UI components/Button';
 
 const Modal = (props) => {
+  //If modal is off add .hidden to class name
   const modalOn = props.modal ? '' : classes.hidden;
 
   let score;
   if (props.score > 44) {
     score = ' Amazing! 🥇';
   } else if (props.score > 29 && props.score < 45) {
-    score = ' Good gob! 🥈';
+    score = ' Good job! 🥈';
   } else if (props.score > 20 && props.score < 30) {
     score = ' Nice! 🥉';
   } else {
@@ -22,9 +24,9 @@ const Modal = (props) => {
             <br />
             {score}
           </h2>
-          <button type="button" className={classes.btns} onClick={props.close}>
+          <Button name={classes.btns} click={props.close}>
             Close
-          </button>
+          </Button>
         </div>
       </div>
     </div>

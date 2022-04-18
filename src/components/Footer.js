@@ -1,28 +1,20 @@
 import classes from './Footer.module.css';
+import Button from './UI components/Button';
+
 const Footer = (props) => {
   //If Start is clicked show Stop button
   let button;
   if (props.data.btnStart === true) {
     button = (
-      <button
-        onClick={props.start}
-        type="button"
-        className={classes.btns}
-        id={classes.btnStart}
-      >
+      <Button click={props.start} name={classes.btns}>
         Start game
-      </button>
+      </Button>
     );
   } else {
     button = (
-      <button
-        type="button"
-        className={classes.btns}
-        id={classes.btnStop}
-        onClick={props.stop}
-      >
+      <Button name={classes.btns} click={props.stop}>
         Stop game
-      </button>
+      </Button>
     );
   }
   return (
