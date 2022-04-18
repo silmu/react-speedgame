@@ -5,17 +5,9 @@ const Footer = (props) => {
   //If Start is clicked show Stop button
   let button;
   if (props.data.btnStart === true) {
-    button = (
-      <Button click={props.start} name={classes.btns}>
-        Start game
-      </Button>
-    );
+    button = <Button click={props.start}>Start game</Button>;
   } else {
-    button = (
-      <Button name={classes.btns} click={props.stop}>
-        Stop game
-      </Button>
-    );
+    button = <Button click={props.stop}>Stop game</Button>;
   }
   return (
     <footer>

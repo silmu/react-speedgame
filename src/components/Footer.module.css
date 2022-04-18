@@ -10,20 +10,3 @@ footer a {
   font-style: italic;
   font-size: small;
 }
-
-.btns {
-  padding: 0.5rem 1rem;
-  border: 1px solid rgb(189, 90, 189);
-  border-radius: 10px;
-  background: linear-gradient(to bottom, rgb(207, 107, 207), violet);
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-family: inherit;
-  font-size: inherit;
-  box-shadow: 0 0 3px white;
-}
-
-.btns:hover {
-  filter: hue-rotate(250deg);
-}

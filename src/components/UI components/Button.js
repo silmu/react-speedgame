@@ -1,9 +1,10 @@
-//Refactor with buttons
+import classes from './Button.module.css';
+
 const Button = (props) => {
   return (
     <button
       type={props.type || 'button'}
-      className={props.name}
+      className={classes.btns}
       onClick={props.click}
     >
       {props.children}
