@@ -5,9 +5,16 @@ import Header from './components/Header';
 import Modal from './components/Modal';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import sound from './audio/frog.ogg';
+// import sound from './audio/frog.ogg';
+import soundClick from './audio/click.mp3';
+import bksound1 from './audio/bk-sound1.wav';
+// import bksound2 from './audio/bk-sound2.mp3';
+
 let timer;
-let audio = new Audio(sound);
+// let audio = new Audio(sound);
+let audioClick = new Audio(soundClick);
+let audioBk1 = new Audio(bksound1);
+// let audioBk2 = new Audio(bksound2);
 
 class App extends Component {
   state = {
@@ -23,10 +30,6 @@ class App extends Component {
     modal: false,
     audio: false,
     topScore: localStorage.getItem('topScore'),
-  };
-
-  playSound = () => {
-    audio.play();
   };
 
   toggleSound = () => {
@@ -46,9 +49,7 @@ class App extends Component {
   selectRandom = () => {
     //Generate a random number
     let prevRandom = this.state.random;
-    let newRandom = Math.floor(
-      Math.random() * (this.state.numberOfCircles - 1)
-    );
+    let newRandom = Math.floor(Math.random() * this.state.numberOfCircles);
     //If number mathes to the last number reselect
     while (prevRandom === newRandom) {
       newRandom = Math.floor(Math.random() * (this.state.numberOfCircles - 1));
@@ -71,7 +72,13 @@ class App extends Component {
     console.log('Game started');
     //Play audio if not muted
     if (this.state.audio === true) {
-      this.playSound();
+      // audio.currentTime = 0;
+      // this.playSound();
+      //If background audio is on keep playing
+      audioBk1.play();
+      // if (audioBk1.pause()) {
+      //   audioBk1.play();
+      // }
     }
     this.setTimer();
     this.selectRandom();
@@ -95,6 +102,12 @@ class App extends Component {
   };
 
   circleClickHandler = (e) => {
+    //Play sound on click
+    if (this.state.audio === true) {
+      audioClick.currentTime = 0;
+      audioClick.play();
+    }
+
     //Save the number of selected circle
     let selected = e.target.innerHTML;
     this.setState({ userSelection: selected });
@@ -126,11 +139,6 @@ class App extends Component {
       this.setState({ topScore: this.state.score });
       localStorage.setItem('topScore', this.state.score);
     }
-    //Get score
-    //If score is higher than top score
-    //Set score as top score if it's higher
-    //Send score to localStorage
-    //Render top scores in modal
   };
 
   render() {

@@ -23,15 +23,21 @@
 
 .contentGameover {
   display: inline-block;
-  line-height: 59px;
+  line-height: 1rem;
+  color: maroon;
 }
 
-h2 {
-  padding-bottom: 0;
+.contentGameover h2 {
   margin: 0;
+  padding: 3rem 1rem 1rem 1rem;
+  font-size: 1.2rem;
+}
+
+.score {
+  margin-top: 1rem;
 }
 
 .contentGameover p {
   margin: 0;
-  color: maroon;
+  padding-bottom: 0;
 }

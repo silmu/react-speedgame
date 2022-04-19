@@ -20,11 +20,11 @@ const Modal = (props) => {
       <div className={classes.containerGameoverModal}>
         <div className={classes.contentGameover}>
           <h2>
-            Your final score: {props.score}
+            Your final score:{props.score}
             <br />
-            {score}
+            <div className={classes.score}>{score}</div>
           </h2>
-          <p>Top score: {props.topScore}</p>
+          <p>✨🌟⭐ Top score: {props.topScore} ⭐🌟✨</p>
           <Button click={props.close}>Close</Button>
         </div>
       </div>
