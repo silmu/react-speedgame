@@ -11,7 +11,7 @@ let audio = new Audio(sound);
 
 class App extends Component {
   state = {
-    numberOfCircles: 8,
+    numberOfCircles: 4,
     score: 0,
     pace: 1000,
     rounds: 0,
@@ -22,6 +22,7 @@ class App extends Component {
     btnStop: false,
     modal: false,
     audio: false,
+    topScore: localStorage.getItem('topScore'),
   };
 
   playSound = () => {
@@ -30,6 +31,10 @@ class App extends Component {
 
   toggleSound = () => {
     this.setState({ audio: !this.state.audio });
+  };
+
+  difficultyHandler = (e) => {
+    this.setState({ numberOfCircles: e.target.value });
   };
 
   //Set timer that starts the game and gives 1000 msec to click on a circle
@@ -49,7 +54,6 @@ class App extends Component {
       newRandom = Math.floor(Math.random() * (this.state.numberOfCircles - 1));
     }
     this.setState({ random: newRandom });
-    console.log('Current circle selected: ' + this.state.random);
   };
 
   startHandler = () => {
@@ -76,7 +80,6 @@ class App extends Component {
       rounds: this.state.rounds + 1,
       pace: this.state.pace - 10,
     });
-    console.log(this.state.pace);
     if (this.state.rounds >= 5) {
       this.endGameHandler();
     }
@@ -84,6 +87,7 @@ class App extends Component {
 
   endGameHandler = () => {
     console.log('Game ended');
+    this.setTopScore();
     clearTimeout(timer);
     this.setState({
       modal: true,
@@ -93,9 +97,7 @@ class App extends Component {
   circleClickHandler = (e) => {
     //Save the number of selected circle
     let selected = e.target.innerHTML;
-    console.log(selected);
     this.setState({ userSelection: selected });
-    console.log(this.state.userSelection);
 
     //If selected circle is not the same as current random end game
     // eslint-disable-next-line
@@ -118,6 +120,19 @@ class App extends Component {
     window.location.reload();
   };
 
+  setTopScore = () => {
+    console.log(this.state.score + ' top score:' + this.state.topScore);
+    if (this.state.score > this.state.topScore) {
+      this.setState({ topScore: this.state.score });
+      localStorage.setItem('topScore', this.state.score);
+    }
+    //Get score
+    //If score is higher than top score
+    //Set score as top score if it's higher
+    //Send score to localStorage
+    //Render top scores in modal
+  };
+
   render() {
     return (
       <div className={classes.mainContainer}>
@@ -125,11 +140,14 @@ class App extends Component {
           score={this.state.score}
           toggleSound={this.toggleSound}
           audio={this.state.audio}
+          change={this.difficultyHandler}
+          difficulty={this.state.numberOfCircles}
         />
         <Modal
           modal={this.state.modal}
           close={this.closeHandler}
           score={this.state.score}
+          topScore={this.state.topScore}
         />
         <Main
           click={this.circleClickHandler}

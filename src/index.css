@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
 
+:root {
+  --gradient: linear-gradient(to bottom, rgb(207, 107, 207), violet);
+}
+
 body {
   background-image: url(./designs/bk.jpg);
   background-repeat: no-repeat;

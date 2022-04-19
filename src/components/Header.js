@@ -14,6 +14,18 @@ const Header = (props) => {
       <Button click={props.toggleSound}>
         <div className={classSound} alt="Audio off" />
       </Button>
+      <div className={classes.difficulty}>
+        <label htmlFor="difficulty">Difficulty: {props.difficulty}</label>
+        <input
+          type="range"
+          min="4"
+          max="8"
+          step="2"
+          onChange={props.change}
+          value={props.difficulty}
+          id="difficulty"
+        />
+      </div>
     </header>
   );
 };

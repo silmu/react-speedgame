@@ -24,6 +24,7 @@ const Modal = (props) => {
             <br />
             {score}
           </h2>
+          <p>Top score: {props.topScore}</p>
           <Button click={props.close}>Close</Button>
         </div>
       </div>
