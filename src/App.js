@@ -5,16 +5,12 @@ import Header from './components/Header';
 import Modal from './components/Modal';
 import Main from './components/Main';
 import Footer from './components/Footer';
-// import sound from './audio/frog.ogg';
 import soundClick from './audio/click.mp3';
 import bksound1 from './audio/bk-sound1.wav';
-// import bksound2 from './audio/bk-sound2.mp3';
 
 let timer;
-// let audio = new Audio(sound);
 let audioClick = new Audio(soundClick);
 let audioBk1 = new Audio(bksound1);
-// let audioBk2 = new Audio(bksound2);
 
 class App extends Component {
   state = {
@@ -36,7 +32,7 @@ class App extends Component {
     this.setState({ audio: !this.state.audio });
   };
 
-  difficultyHandler = (e) => {
+  difficultyHandler = e => {
     this.setState({ numberOfCircles: e.target.value });
   };
 
@@ -58,8 +54,6 @@ class App extends Component {
   };
 
   startHandler = () => {
-    console.log('Start clicked');
-
     this.setState({
       btnStart: false,
       btnStop: true,
@@ -69,16 +63,10 @@ class App extends Component {
   };
 
   startGame = () => {
-    console.log('Game started');
     //Play audio if not muted
     if (this.state.audio === true) {
-      // audio.currentTime = 0;
-      // this.playSound();
       //If background audio is on keep playing
       audioBk1.play();
-      // if (audioBk1.pause()) {
-      //   audioBk1.play();
-      // }
     }
     this.setTimer();
     this.selectRandom();
@@ -93,7 +81,6 @@ class App extends Component {
   };
 
   endGameHandler = () => {
-    console.log('Game ended');
     this.setTopScore();
     clearTimeout(timer);
     this.setState({
@@ -101,7 +88,7 @@ class App extends Component {
     });
   };
 
-  circleClickHandler = (e) => {
+  circleClickHandler = e => {
     //Play sound on click
     if (this.state.audio === true) {
       audioClick.currentTime = 0;
@@ -129,12 +116,10 @@ class App extends Component {
 
   closeHandler = () => {
     this.setState({ modal: false });
-    console.log('Close is clicked');
     window.location.reload();
   };
 
   setTopScore = () => {
-    console.log(this.state.score + ' top score:' + this.state.topScore);
     if (this.state.score > this.state.topScore) {
       this.setState({ topScore: this.state.score });
       localStorage.setItem('topScore', this.state.score);

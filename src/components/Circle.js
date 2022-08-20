@@ -1,16 +1,14 @@
 import classes from './Circle.module.css';
-const Circle = (props) => {
+const Circle = ({ active, click, children }) => {
   return (
     <div
       className={
         //If circle is active display the frog on a lilypad
-        props.active
-          ? `${classes.circles} ${classes.active}`
-          : `${classes.circles}`
+        active ? `${classes.circles} ${classes.active}` : `${classes.circles}`
       }
-      onClick={props.click}
+      onClick={click}
     >
-      {props.children}
+      {children}
     </div>
   );
 };

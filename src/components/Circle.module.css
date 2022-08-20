@@ -1,5 +1,5 @@
 .circles {
-  background-image: url('./../designs/lilypad.svg');
+  background-image: url('../designs/lilypad.svg');
   object-fit: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -13,7 +13,7 @@
 }
 
 .active {
-  background-image: url('./../designs/frog.svg');
+  background-image: url('../designs/frog.svg');
   filter: saturate(150%) brightness(105%);
 }
 

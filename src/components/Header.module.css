@@ -19,7 +19,7 @@ header h2 {
 
 /* Volume button */
 .soundOff {
-  background-image: url('../designs/volume-xmark-solid.svg');
+  background-image: url('/src//designs/volume-xmark-solid.svg');
   background-repeat: no-repeat;
   width: 20px;
   height: 18px;
@@ -29,7 +29,7 @@ header h2 {
 }
 
 .soundOn {
-  background-image: url('../designs/volume-high-solid.svg');
+  background-image: url('../designs//volume-high-solid.svg');
   background-repeat: no-repeat;
   width: 20px;
   height: 18px;

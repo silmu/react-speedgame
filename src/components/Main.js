@@ -1,20 +1,20 @@
 import classes from './Main.module.css';
 import Circle from './Circle';
-const Main = (props) => {
+const Main = ({ active, gameOn, numberOfCircles, click }) => {
   //Check which circle is active
-  let checkActive = (num) => {
-    return props.active === num;
+  let checkActive = num => {
+    return active === num;
   };
   //Check if game is on, make circles clickable
   const isGameOn = () => {
-    return props.gameOn ? '' : classes.notClickable;
+    return gameOn ? '' : classes.notClickable;
   };
 
   //Creating array of circles
   const circlesArr = [];
-  for (let i = 0; i < props.numberOfCircles; i++) {
+  for (let i = 0; i < numberOfCircles; i++) {
     circlesArr.push(
-      <Circle click={props.click} active={checkActive(i)} key={i}>
+      <Circle click={click} active={checkActive(i)} key={i}>
         {i}
       </Circle>
     );

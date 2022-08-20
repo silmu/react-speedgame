@@ -1,31 +1,31 @@
 import classes from './Modal.module.css';
 import Button from './UI components/Button';
 
-const Modal = (props) => {
+const Modal = ({ modal, score, topScore, close }) => {
   //If modal is off add .hidden to class name
-  const modalOn = props.modal ? '' : classes.hidden;
+  const modalOn = modal ? '' : classes.hidden;
 
-  let score;
-  if (props.score > 44) {
-    score = ' Amazing! 🥇';
-  } else if (props.score > 29 && props.score < 45) {
-    score = ' Good job! 🥈';
-  } else if (props.score > 20 && props.score < 30) {
-    score = ' Nice! 🥉';
+  let message;
+  if (score > 44) {
+    message = ' Amazing! 🥇';
+  } else if (score > 29 && score < 45) {
+    message = ' Good job! 🥈';
+  } else if (score > 20 && score < 30) {
+    message = ' Nice! 🥉';
   } else {
-    score = '';
+    message = '';
   }
   return (
     <div className={`${classes.containerGameover} ${modalOn}`}>
       <div className={classes.containerGameoverModal}>
         <div className={classes.contentGameover}>
           <h2>
-            Your final score:{props.score}
+            Your final score:{score}
             <br />
-            <div className={classes.score}>{score}</div>
+            <div className={classes.score}>{message}</div>
           </h2>
-          <p>✨🌟⭐ Top score: {props.topScore} ⭐🌟✨</p>
-          <Button click={props.close}>Close</Button>
+          <p>✨🌟⭐ Top score: {topScore} ⭐🌟✨</p>
+          <Button click={close}>Close</Button>
         </div>
       </div>
     </div>
